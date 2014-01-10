@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Episode 2</title>
+    </head>
+    <body>
+        Enter two text blocks to compare:
+        <form action="/" method="post">
+            <textarea name="A"></textarea>
+            <textarea name="B"> </textarea>
+            <input type="submit" value="Execute" />
+        </form>
+
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                Results:
+                <pre>
+                    {% for message in messages %}
+{{ message }}
+                    {% endfor %}
+                </pre>
+            {% endif %}
+        {% endwith %}
+    </body>
+</html>
+

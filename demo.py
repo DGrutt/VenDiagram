@@ -1,0 +1,58 @@
+import flask, flask.views
+import os
+
+
+app = flask.Flask(__name__)
+# Don't do this!
+app.secret_key = "bacon"
+
+class View(flask.views.MethodView):
+    def get(self):
+        return flask.render_template('index.html')
+        
+    def post(self):
+        A = unicode(flask.request.form['A'])
+        B = unicode(flask.request.form['B'])
+        C = A.split()
+        D = B.split()
+        Both = []
+        for x in C:
+            if x in D:
+                Both.append(x)
+        for x in range(len(Both)):
+            Both[x]=str(Both[x])
+        Final = []
+        for x in set(Both):
+            Final.append(x)
+        MissingA = []
+        for x in C:
+            if x not in Final:
+                MissingA.append(x)
+        for x in range(len(MissingA)):
+            MissingA[x]=str(MissingA[x])
+        MissingB = []
+        for x in D:
+            if x not in Final:
+                MissingB.append(x)
+        for x in range(len(MissingB)):
+            MissingB[x]=str(MissingB[x])
+        #flask.flash("A:")
+        #flask.flash(A)
+        #flask.flash("B:")
+        #flask.flash(B)
+        #flask.flash("C:")
+        #flask.flash(C)
+        #flask.flash("D:")
+        #flask.flash(D)
+        flask.flash("Words in Both:")
+        flask.flash(Final)
+        flask.flash("Words in First Box Only:")
+        flask.flash(MissingA)
+        flask.flash("Words in Second Box Only:")
+        flask.flash(MissingB)
+        return self.get()
+    
+app.add_url_rule('/', view_func=View.as_view('main'), methods=['GET', 'POST'])
+
+app.debug = True
+app.run()
