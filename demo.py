@@ -1,5 +1,5 @@
 import flask, flask.views
-import os
+#import os
 
 
 app = flask.Flask(__name__)
@@ -26,13 +26,13 @@ class View(flask.views.MethodView):
             Final.append(x)
         MissingA = []
         for x in C:
-            if x not in Final:
+            if x not in Final and x not in MissingA:
                 MissingA.append(x)
         for x in range(len(MissingA)):
             MissingA[x]=str(MissingA[x])
         MissingB = []
         for x in D:
-            if x not in Final:
+            if x not in Final and x not in MissingB:
                 MissingB.append(x)
         for x in range(len(MissingB)):
             MissingB[x]=str(MissingB[x])
