@@ -4,7 +4,7 @@ import os
 
 app = flask.Flask(__name__)
 # Don't do this!
-app.secret_key = "bacon"
+app.secret_key = "asdfkhsdfkjsh3w45254235423"
 
 class View(flask.views.MethodView):
     def get(self):
