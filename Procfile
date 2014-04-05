@@ -1,1 +1,1 @@
-web: python demo.py
+web: python demo.py ${PORT}
