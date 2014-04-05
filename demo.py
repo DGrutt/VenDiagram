@@ -4,7 +4,6 @@ import os
 
 
 app = flask.Flask(__name__)
-# Don't do this!
 app.secret_key = "asdfkhsdfkjsh3w45254235423"
 
 class View(flask.views.MethodView):
@@ -56,4 +55,5 @@ class View(flask.views.MethodView):
 app.add_url_rule('/', view_func=View.as_view('main'), methods=['GET', 'POST'])
 
 app.debug = True
-app.run()
+if __name__ == "__main__":
+    app.run()
