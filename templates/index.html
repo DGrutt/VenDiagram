@@ -2,16 +2,35 @@
 <html>
     <head>
         <title>Ven Diagram</title>
+    <style type=”text/css”>
+    #pagearea {
+    width: 100%;
+    margin: 0 auto;
+    }
+    textarea {
+    width: 48%;
+    padding: 0 0 0 0;
+    margin: 0 0 0 0;
+    }
+    input {
+    width: 80px;
+    height: 40px;
+    }
+     </style>
     </head>
     <body>
+        <div id="pagearea">
+        <h1>
         This program allows you to match text.
-
         Enter two text blocks to compare:
+        </h1>
         <form action="/" method="post">
-            <textarea name="A"></textarea>
-            <textarea name="B"> </textarea>
-            <input type="submit" value="Execute" />
+          <textarea name="A" cols="100" rows="20"></textarea>
+          <textarea name="B" cols="100" rows="20"></textarea>
+          <br />
+          <input type="submit" value="Execute" />
         </form>
+        </div>
 
         {% with messages = get_flashed_messages() %}
             {% if messages %}
